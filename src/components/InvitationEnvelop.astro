@@ -16,14 +16,15 @@ import SideFlower from "../assets/images/side_flower.png";
   >
     <Image
       src={SideFlower}
-      alt="Prewedding"
+      alt="Flower Left"
       height={200}
       format="webp"
-      loading="lazy"
+      loading="eager"
+      fetchpriority="high"
     />
     <Image
       src={SideFlower}
-      alt="Prewedding"
+      alt="Flower Right"
       height={200}
       format="webp"
       class="scale-x-[-1]"
@@ -36,7 +37,8 @@ import SideFlower from "../assets/images/side_flower.png";
       alt="Pre Wedding"
       height={200}
       format="webp"
-      loading="lazy"
+      loading="eager"
+      fetchpriority="high"
     />
     <div
       class="flex flex-col gap-3 items-center font-monallesia text-center px-2 text-black"
