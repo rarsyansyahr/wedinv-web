@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "MonallesiaScript";
+  src: url("/fonts/Monallesia-Script.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-monallesia: "MonallesiaScript", "sans-serif";
+}
