@@ -1,11 +1,10 @@
 ---
 import id from "../../i18n/id.json";
 import Layout from "../../layouts/Layout.astro";
-import InvitationEnvelop from "../../components/InvitationEnvelop.astro";
+import InvitationEnvelope from "../../components/InvitationEnvelope.astro";
+import InvitationHero from "../../components/InvitationHero.astro";
 
 export const prerender = false;
-
-const { common } = id;
 
 const raw = Astro.url.searchParams.get("to");
 
@@ -13,7 +12,8 @@ const raw = Astro.url.searchParams.get("to");
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title={common.weddingInvitation} lang="id">
-  <InvitationEnvelop />
+<Layout title={id.common.weddingInvitation} lang="id">
+  <!-- <InvitationEnvelope /> -->
+   <InvitationHero />
   <div class="min-h-screen flex items-center justify-center"><h1 class="text-black">Cilukkk Baa ❤️</h1></div>
 </Layout>
