@@ -3,6 +3,7 @@ import id from "../../i18n/id.json";
 import Layout from "../../layouts/Layout.astro";
 import InvitationEnvelope from "../../components/InvitationEnvelope.astro";
 import InvitationHero from "../../components/InvitationHero.astro";
+import InvitationPageLoader from "../../components/InvitationPageLoader.astro";
 
 export const prerender = false;
 
@@ -13,7 +14,8 @@ const raw = Astro.url.searchParams.get("to");
 ---
 
 <Layout title={id.common.weddingInvitation} lang="id">
-  <div id="mainContent" class="hidden transition duration-500">
+  <InvitationPageLoader />
+  <div id="mainContent" class="transition duration-500">
     <InvitationHero />
   </div>
   <InvitationEnvelope />

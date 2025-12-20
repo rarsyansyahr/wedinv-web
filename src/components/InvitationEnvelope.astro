@@ -69,6 +69,8 @@ import SideFlower from "../assets/images/side_flower.png";
   (() => {
     const guestEl = document.getElementById("guest");
     const mainContentEl = document.getElementById("mainContent");
+    const loaderEl = document.getElementById("pageLoader");
+    
     let guestValue = new URLSearchParams(location.search).get("to");
 
     if (guestValue) {
@@ -94,5 +96,7 @@ import SideFlower from "../assets/images/side_flower.png";
       envelop.style.pointerEvents = "none";
       envelop.style.transform = "translateY(-20px)";
     });
+
+    loaderEl.remove()
   })();
 </script>
