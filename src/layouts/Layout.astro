@@ -1,7 +1,14 @@
 ---
 import "../styles/global.css";
+import id from "../i18n/id.json";
+import en from "../i18n/en.json";
 
 const { lang, title } = Astro.props;
+
+const baseUrl = "https://wedinv-web.vercel.app";
+const description = (lang === "id" ? id : en).common.weddingInvitation;
+const pageUrl = `${baseUrl}/id`;
+const ogCover = `${baseUrl}/images/og-cover.png`;
 ---
 
 <!doctype html>
@@ -11,9 +18,25 @@ const { lang, title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:locale" content={lang === "id" ? "id_ID" : "en_US"} />
+
+    <!-- SEO -->
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageUrl} />
+
+    <!-- Open Graph (WA, FB) -->
     <meta property="og:title" content={title} />
-    <!-- <meta property="og:image" content="/og.jpg" /> -->
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogCover} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === "id" ? "id_ID" : "en_US"} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogCover} />
+
     <link
       rel="preload"
       href="/fonts/Monallesia-Script.woff2"
