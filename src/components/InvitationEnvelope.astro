@@ -68,6 +68,7 @@ import SideFlower from "../assets/images/side_flower.png";
 <script is:inline>
   (() => {
     const guestEl = document.getElementById("guest");
+    const mainContentEl = document.getElementById("mainContent");
     let guestValue = new URLSearchParams(location.search).get("to");
 
     if (guestValue) {
@@ -88,6 +89,7 @@ import SideFlower from "../assets/images/side_flower.png";
     const envelop = document.getElementById("invitationEnvelop");
 
     openButton?.addEventListener("click", () => {
+      mainContentEl.classList.remove("hidden");
       envelop.style.opacity = "0";
       envelop.style.pointerEvents = "none";
       envelop.style.transform = "translateY(-20px)";

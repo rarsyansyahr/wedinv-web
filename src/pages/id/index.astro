@@ -13,7 +13,8 @@ const raw = Astro.url.searchParams.get("to");
 ---
 
 <Layout title={id.common.weddingInvitation} lang="id">
-  <!-- <InvitationEnvelope /> -->
-   <InvitationHero />
-  <div class="min-h-screen flex items-center justify-center"><h1 class="text-black">Cilukkk Baa ❤️</h1></div>
+  <div id="mainContent" class="hidden transition duration-500">
+    <InvitationHero />
+  </div>
+  <InvitationEnvelope />
 </Layout>
