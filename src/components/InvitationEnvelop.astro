@@ -1,0 +1,59 @@
+---
+import id from "../i18n/id.json";
+import { Image } from "astro:assets";
+import AnisRizky from "../assets/images/anis_rizky.png";
+import SideFlower from "../assets/images/side_flower.png";
+
+export const prerender = false;
+
+const raw = Astro.url.searchParams.get("to");
+const guest = raw ? raw.replace(/[^a-zA-Z0-9\s.,]/g, "") : "-";
+---
+
+<!-- bg-[#7169a7] -->
+<section
+  id="invitationEnvelop"
+  class="fixed inset-0 z-50
+ bg-[#f0e6ef] min-w-full min-h-full transition-all duration-1000 ease-out"
+>
+  <div
+    class="absolute min-w-screen h-[50vh] flex flex-row items-center justify-between z-0"
+  >
+    <Image src={SideFlower} alt="Prewedding" height={200} format="webp" />
+    <Image
+      src={SideFlower}
+      alt="Prewedding"
+      height={200}
+      format="webp"
+      class="scale-x-[-1]"
+    />
+  </div>
+  <div class="py-12 flex flex-col gap-12 items-center z-10">
+    <Image src={AnisRizky} alt="Prewedding" height={200} format="webp" />
+    <div class="flex flex-col gap-2 items-center font-monallesia">
+      <span class="text-xl">{id.common.wedding}</span>
+      <span class="text-black pt-4 pb-8 text-4xl text-shadow-sm">Rizky & Anis</span>
+      <span class="text-sm">Kepada Yth, Bapak/Ibu/Saudara/i</span>
+      <span class="text-xl">{guest}</span>
+      <span class="text-xs"
+        >Silakan klik tombol di bawah untuk membuka undangan Pernikahan.</span
+      >
+    </div>
+    <button
+      id="openButton"
+      class="bg-[#515a44] text-white py-2 px-4 rounded-md transition active:ring-amber-900 active:ring-1 active:brightness-90 active:scale-95"
+      >Buka Undangan</button
+    >
+  </div>
+</section>
+
+<script>
+  const openButton = document.getElementById("openButton");
+  const envelop = document.getElementById("invitationEnvelop")!;
+
+  openButton?.addEventListener("click", () => {
+    envelop.style.opacity = "0";
+    envelop.style.pointerEvents = "none";
+    envelop.style.transform = "translateY(-20px)";
+  });
+</script>

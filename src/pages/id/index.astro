@@ -1,0 +1,18 @@
+---
+import id from "../../i18n/id.json";
+import Layout from "../../layouts/Layout.astro";
+import InvitationEnvelop from "../../components/InvitationEnvelop.astro";
+
+export const prerender = false;
+
+const { common } = id;
+
+const raw = Astro.url.searchParams.get("to");
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title={common.weddingInvitation} lang="id">
+  <InvitationEnvelop />
+</Layout>

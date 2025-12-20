@@ -1,15 +1,27 @@
 ---
 import "../styles/global.css";
+
+const { lang, title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <meta property="og:locale" content={lang === "id" ? "id_ID" : "en_US"} />
+    <meta property="og:title" content={title} />
+    <!-- <meta property="og:image" content="/og.jpg" /> -->
+    <link
+      rel="preload"
+      href="/fonts/Monallesia-Script.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <title>{title}</title>
   </head>
   <body>
     <slot />
