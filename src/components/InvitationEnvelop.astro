@@ -14,17 +14,30 @@ import SideFlower from "../assets/images/side_flower.png";
   <div
     class="absolute min-w-screen h-[50vh] flex flex-row items-center justify-between z-0"
   >
-    <Image src={SideFlower} alt="Prewedding" height={200} format="webp" />
+    <Image
+      src={SideFlower}
+      alt="Prewedding"
+      height={200}
+      format="webp"
+      loading="lazy"
+    />
     <Image
       src={SideFlower}
       alt="Prewedding"
       height={200}
       format="webp"
       class="scale-x-[-1]"
+      loading="lazy"
     />
   </div>
   <div class="py-12 flex flex-col gap-12 items-center z-10">
-    <Image src={AnisRizky} alt="Prewedding" height={200} format="webp" />
+    <Image
+      src={AnisRizky}
+      alt="Pre Wedding"
+      height={200}
+      format="webp"
+      loading="lazy"
+    />
     <div
       class="flex flex-col gap-3 items-center font-monallesia text-center px-2"
     >
@@ -50,30 +63,32 @@ import SideFlower from "../assets/images/side_flower.png";
   </div>
 </section>
 
-<script>
-  const guestEl = document.getElementById("guest");
-  let guestValue = new URLSearchParams(location.search).get("to");
+<script is:inline>
+  (() => {
+    const guestEl = document.getElementById("guest");
+    let guestValue = new URLSearchParams(location.search).get("to");
 
-  if (guestValue) {
-    guestValue = guestValue.replace(/\s+/g, " ").trim();
+    if (guestValue) {
+      guestValue = guestValue.replace(/\s+/g, " ").trim();
 
-    if (/^[\w .,'-]{1,40}$/.test(guestValue)) {
-      guestEl.textContent = guestValue;
+      if (/^[\w .,'-]{1,40}$/.test(guestValue)) {
+        guestEl.textContent = guestValue;
+      } else {
+        guestEl.textContent = guestEl.dataset.default;
+      }
     } else {
       guestEl.textContent = guestEl.dataset.default;
     }
-  } else {
-    guestEl.textContent = guestEl.dataset.default;
-  }
 
-  guestEl?.classList.remove("opacity-0");
+    guestEl?.classList.remove("opacity-0");
 
-  const openButton = document.getElementById("openButton");
-  const envelop = document.getElementById("invitationEnvelop")!;
+    const openButton = document.getElementById("openButton");
+    const envelop = document.getElementById("invitationEnvelop")!;
 
-  openButton?.addEventListener("click", () => {
-    envelop.style.opacity = "0";
-    envelop.style.pointerEvents = "none";
-    envelop.style.transform = "translateY(-20px)";
-  });
+    openButton?.addEventListener("click", () => {
+      envelop.style.opacity = "0";
+      envelop.style.pointerEvents = "none";
+      envelop.style.transform = "translateY(-20px)";
+    });
+  })();
 </script>

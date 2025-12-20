@@ -8,15 +8,11 @@ import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss({ optimize: true})],
+    plugins: [tailwindcss({ optimize: true })],
   },
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-    imageService: true,
-    devImageService: "sharp",
-    isr: true,
-    experimentalStaticHeaders: true,
-  }),
+  adapter: vercel(),
+
+  build: {
+    inlineStylesheets: "auto",
+  },
 });
