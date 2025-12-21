@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import RoundedFlower from "../assets/images/rounded_flower.svg";
+
+// preset: day, hour, minute, second
+// value: number
+const { preset } = Astro.props; 
+
+const rotateClass = ["hour", "second"].includes(preset) ? "rotate-70 translate-x-6 -translate-y-7/12" : ""
+---
+
+<div
+  class="bg-[#EFE6EE] w-48 h-48 rounded-full flex flex-col gap-4 justify-center items-center relative sm:w-56 sm:h-56 sm:gap-5"
+>
+  <span class="font-monallesia text-5xl sm:text-7xl" id={preset}>00</span>
+  <span class="font-light text-base capitalize sm:text-xl">{preset}</span>
+  <div
+    class="absolute h-48 w-48 border-[1px] border-[#B5A2BD] rounded-full -bottom-2 sm:w-56 sm:h-56 sm:-bottom-3"
+  >
+    <Image
+      src={RoundedFlower}
+      alt="Rounded Flower Decoration"
+      class=`absolute -start-21 -bottom-9 ${rotateClass}`
+      loading="lazy"
+    />
+  </div>
+</div>

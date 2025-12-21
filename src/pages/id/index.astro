@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import InvitationEnvelope from "../../components/InvitationEnvelope.astro";
 import InvitationHero from "../../components/InvitationHero.astro";
 import InvitationPageLoader from "../../components/InvitationPageLoader.astro";
+import InvitationCountdown from "../../components/InvitationCountdown.astro";
 
 export const prerender = false;
 
@@ -15,8 +16,9 @@ const raw = Astro.url.searchParams.get("to");
 
 <Layout title={id.common.weddingInvitation} lang="id">
   <InvitationPageLoader />
-  <div id="mainContent" class="transition duration-500 hidden">
+  <div id="mainContent" class="transition duration-500">
     <InvitationHero />
+    <InvitationCountdown />
   </div>
-  <InvitationEnvelope />
+  <!-- <InvitationEnvelope /> -->
 </Layout>
