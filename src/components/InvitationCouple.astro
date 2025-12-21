@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import InvitationPartner from "./InvitationPartner.astro";
+
+import FlowerStalk from "../assets/images/flower_stalk.png";
+---
+
+<section class="mt-16 mb-16 min-w-screen relative sm:mt-36 sm:mb-32">
+  <div
+    class="flex flex-col gap-8 px-3 sm:flex-row sm:gap-12 sm:justify-center sm:absolute sm:bottom-0 sm:z-10 sm:min-w-screen"
+  >
+    <InvitationPartner name="Anis Fauziyah" preset="bride" />
+    <InvitationPartner name="Rizky Arsy" preset="groom" />
+  </div>
+  <div class="hidden w-full sm:flex">
+    <div class="flex w-full flex-row justify-between">
+      <Image
+        src={FlowerStalk}
+        alt="Flower Stalk"
+        class="scale-x-[-1] [animation:sway_7s_ease-in-out_infinite]"
+      />
+      <Image src={FlowerStalk} alt="Flower Stalk" class="[animation:sway-right_7s_ease-in-out_infinite]" />
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes sway {
+    0%,
+    100% {
+      transform: rotate(6deg);
+    }
+    50% {
+      transform: rotate(-6deg);
+    }
+  }
+  @keyframes sway-right {
+    0%,
+    100% {
+      transform: rotate(-6deg);
+    }
+    50% {
+      transform: rotate(6deg);
+    }
+  }
+</style>

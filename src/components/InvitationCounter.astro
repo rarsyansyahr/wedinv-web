@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import RoundedFlower from "../assets/images/rounded_flower.svg";
 
 // preset: day, hour, minute, second
-// value: number
 const { preset } = Astro.props; 
 
 const rotateClass = ["hours", "seconds"].includes(preset) ? "rotate-70 translate-x-2 -translate-y-9/12 sm:-translate-y-6/12" : ""

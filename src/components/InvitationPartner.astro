@@ -1,0 +1,57 @@
+---
+type InvitationPartnerProps = {
+  preset: "bride" | "groom";
+  name: string;
+};
+
+import { Image } from "astro:assets";
+
+import Bride from "../assets/images/bride.jpg";
+import Groom from "../assets/images/groom.jpg";
+import BrideIcon from "../assets/images/bride_icon.svg";
+import GroomIcon from "../assets/images/groom_icon.svg";
+
+const { preset, name } = Astro.props as InvitationPartnerProps;
+
+const isGroom = preset === "groom";
+---
+
+<div class="rounded-t-full overflow-hidden shadow-lg shadow-black p-7 bg-white">
+  <div class="rounded-t-full overflow-hidden relative">
+    <Image
+      src={isGroom ? Groom : Bride}
+      alt="The Bride"
+      loading="lazy"
+      format="webp"
+    />
+    <div
+      class={`absolute bottom-0 max-h-10/12 w-full ${isGroom && "scale-x-[-1]"}`}
+    >
+      <svg viewBox="0 0 500 433" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0 28.0003C0 28.0003 40 -20.2942 78 11.0001C90.075 20.9443 94.3766 37.833 95.1425 54.6979C95.9162 71.7365 117.555 85.4249 131.164 75.1428C133.036 73.7282 135.17 72.6975 137.441 72.11L142.442 70.8167C168.453 64.0898 194.316 82.2112 196.874 108.956L197.393 114.379C200.295 144.721 230.211 164.837 259.405 156.079L263 155C290.305 139.265 324.668 157.485 326.966 188.914L328.735 213.107C329.843 228.267 342.466 240 357.667 240C359.882 240 362.089 239.747 364.246 239.244L376.055 236.494C404.616 229.843 431.332 253.052 428.738 282.263L427.564 295.484C425.743 315.988 443.286 332.954 463.719 330.449C482.999 328.085 500 343.128 500 362.553V433H0V28.0003Z"
+          fill="white"></path>
+      </svg>
+    </div>
+    <div
+      class={`absolute bottom-0 flex flex-col gap-1.5 ${isGroom && "items-end"} sm:gap-4`}
+    >
+      <Image
+        src={isGroom ? GroomIcon : BrideIcon}
+        alt="The Bride Icon"
+        loading="lazy"
+        format="webp"
+      />
+      <span class="font-sans text-2xl text-[#242424] sm:text-4xl">{name}</span>
+      <p
+        class={`text-base font-light text-[#707070] ${isGroom && "text-right"} sm:text-lg`}
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae vero,
+        velit fugiat, eius aperiam cum alias quasi ratione voluptas
+      </p>
+      <span class="text-xs font-light text-[#707070] sm:text-base"
+        >@social_media</span
+      >
+    </div>
+  </div>
+</div>
