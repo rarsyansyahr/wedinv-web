@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import InvitationCounter from "./InvitationCounter.astro";
 ---
 
@@ -12,39 +11,4 @@ import InvitationCounter from "./InvitationCounter.astro";
   <InvitationCounter preset="seconds" />
 </section>
 
-<script is:inline>
-  (function () {
-    function pad(num) {
-      return num.toString().padStart(2, "0");
-    }
-
-    const target = new Date(2026, 12, 12).getTime();
-
-    function updateCountdown() {
-      const now = Date.now();
-      const diff = target - now;
-
-      if (diff <= 0) {
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-        clearInterval(interval);
-        return;
-      }
-
-      const seconds = Math.floor((diff / 1000) % 60);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-      document.getElementById("days").textContent = pad(days);
-      document.getElementById("hours").textContent = pad(hours);
-      document.getElementById("minutes").textContent = pad(minutes);
-      document.getElementById("seconds").textContent = pad(seconds);
-    }
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-  })();
-</script>
+<script type="module" src="/scripts/countdown.js"></script>
