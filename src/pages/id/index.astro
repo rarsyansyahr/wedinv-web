@@ -17,10 +17,10 @@ const raw = Astro.url.searchParams.get("to");
 
 <Layout title={id.common.weddingInvitation} lang="id">
   <InvitationPageLoader />
-  <div id="mainContent" class="transition duration-500">
+  <div id="mainContent" class="transition duration-500 hidden">
     <InvitationHero />
     <InvitationCountdown client:load />
     <InvitationCouple />
   </div>
-  <!-- <InvitationEnvelope /> -->
+  <InvitationEnvelope />
 </Layout>
