@@ -6,21 +6,21 @@ import RoundedFlower from "../assets/images/rounded_flower.svg";
 // value: number
 const { preset } = Astro.props; 
 
-const rotateClass = ["hour", "second"].includes(preset) ? "rotate-70 translate-x-6 -translate-y-7/12" : ""
+const rotateClass = ["hours", "seconds"].includes(preset) ? "rotate-70 translate-x-2 -translate-y-9/12 sm:-translate-y-6/12" : ""
 ---
 
 <div
-  class="bg-[#EFE6EE] w-48 h-48 rounded-full flex flex-col gap-4 justify-center items-center relative sm:w-56 sm:h-56 sm:gap-5"
+  class="bg-[#EFE6EE] w-17 h-17 rounded-full flex flex-col gap-0 justify-center items-center relative sm:w-56 sm:h-56 sm:gap-5"
 >
-  <span class="font-monallesia text-5xl sm:text-7xl" id={preset}>00</span>
-  <span class="font-light text-base capitalize sm:text-xl">{preset}</span>
+  <span class="font-monallesia text-2xl sm:text-7xl" id={preset}>00</span>
+  <span class="font-light text-xs capitalize sm:text-xl">{preset}</span>
   <div
-    class="absolute h-48 w-48 border-[1px] border-[#B5A2BD] rounded-full -bottom-2 sm:w-56 sm:h-56 sm:-bottom-3"
+    class="absolute h-17 w-17 border-[1px] border-[#B5A2BD] rounded-full -bottom-1 sm:w-56 sm:h-56 sm:-bottom-2"
   >
     <Image
       src={RoundedFlower}
       alt="Rounded Flower Decoration"
-      class=`absolute -start-21 -bottom-9 ${rotateClass}`
+      class=`absolute -start-7 -bottom-5 sm:-start-24 ${rotateClass}`
       loading="lazy"
     />
   </div>
