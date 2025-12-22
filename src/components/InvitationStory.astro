@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+import TopDecoration from "../assets/images/top_decoration.png";
+
+interface Props {
+  photo: ImageMetadata;
+  title: string;
+  date: string;
+  description: string;
+}
+
+const { photo, title, date, description } = Astro.props;
+---
+
+<div>
+  <div class="p-5 shadow-md">
+    <Image src={photo} alt="Story 1" format="webp" loading="lazy" />
+  </div>
+  <div
+    class="px-5 py-10 border-[1px] border-[#b8b8b84d] text-center flex flex-col gap-8 z-10 shadow-sm"
+  >
+    <Image
+      src={TopDecoration}
+      alt="Decoration"
+      format="webp"
+      loading="lazy"
+      class="rotate-180"
+    />
+    <div>
+      <div class="text-[#242424] text-2xl font-monallesia">
+        {title}
+      </div>
+      <div class="my-2.5 text-[#CAA6C7] text-base font-light">{date}</div>
+      <p class="text-[#707070] text-base font-light">
+        {description}
+      </p>
+    </div>
+    <Image
+      src={TopDecoration}
+      alt="Decoration"
+      format="webp"
+      loading="lazy"
+      class=""
+    />
+  </div>
+</div>
