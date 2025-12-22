@@ -1,5 +1,4 @@
 ---
-import id from "../../i18n/id.json";
 import Layout from "../../layouts/Layout.astro";
 import InvitationEnvelope from "../../components/InvitationEnvelope.astro";
 import InvitationHero from "../../components/InvitationHero.astro";
@@ -16,7 +15,7 @@ const raw = Astro.url.searchParams.get("to");
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title={id.common.weddingInvitation} lang="id">
+<Layout title="Anis & Rizky Wedding" lang="id">
   <InvitationPageLoader />
   <main id="mainContent" class="transition duration-500">
     <InvitationHero />
