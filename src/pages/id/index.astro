@@ -1,11 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import InvitationEnvelope from "../../components/InvitationEnvelope.astro";
 import InvitationHero from "../../components/InvitationHero.astro";
 import InvitationPageLoader from "../../components/InvitationPageLoader.astro";
 import InvitationCountdown from "../../components/InvitationCountdown.astro";
 import InvitationCouple from "../../components/InvitationCouple.astro";
 import InvitationLoveStory from "../../components/InvitationLoveStory.astro";
+import InvitationSweetMemory from "../../components/InvitationSweetMemory.astro";
 
 export const prerender = false;
 
@@ -22,6 +22,7 @@ const raw = Astro.url.searchParams.get("to");
     <InvitationCountdown client:load />
     <InvitationCouple />
     <InvitationLoveStory />
+    <InvitationSweetMemory />
   </main>
   <!-- <InvitationEnvelope /> -->
 </Layout>

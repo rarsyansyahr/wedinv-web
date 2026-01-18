@@ -4,27 +4,37 @@ import Story1 from "../assets/images/story1.jpg";
 import Story2 from "../assets/images/story2.jpg";
 import Story3 from "../assets/images/story3.jpg";
 import InvitationSectionHeader from "./InvitationSectionHeader.astro";
+
+const stories = [
+  {
+    photo: Story1,
+    title: "First Time We Meet",
+    date: "12 Februari 2016",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ipsum dicta commodi assumenda facere est veritatis quam voluptatem quisquam doloremque deserunt quibusdam ut alias rem similique ullam, temporibus magni laudantium!",
+  },
+  {
+    photo: Story2,
+    title: "Our First Date",
+    date: "27 Maret 2017",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ipsum dicta commodi assumenda facere est veritatis quam voluptatem quisquam doloremque deserunt quibusdam ut alias rem similique ullam, temporibus magni laudantium!",
+  },
+  {
+    photo: Story3,
+    title: "She Said Yes!",
+    date: "18 September 2020",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ipsum dicta commodi assumenda facere est veritatis quam voluptatem quisquam doloremque deserunt quibusdam ut alias rem similique ullam, temporibus magni laudantium!",
+  },
+];
 ---
 
 <section class="mt-16 mb-8 px-3 flex flex-col gap-8 sm:mt-32">
-  <InvitationSectionHeader title="Our Story" subtitle="Our Sweet Love Story" />
+  <InvitationSectionHeader
+    title="Sweet Memories"
+    subtitle="Our Captured Moment"
+  />
 
-  <InvitationStory
-    photo={Story1}
-    title="First Time We Meet"
-    date="12 Februari 2016"
-    description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ipsum dicta commodi assumenda facere est veritatis quam voluptatem quisquam doloremque deserunt quibusdam ut alias rem similique ullam, temporibus magni laudantium!"
-  />
-  <InvitationStory
-    photo={Story2}
-    title="Our First Date"
-    date="27 Maret 2017"
-    description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ipsum dicta commodi assumenda facere est veritatis quam voluptatem quisquam doloremque deserunt quibusdam ut alias rem similique ullam, temporibus magni laudantium!"
-  />
-  <InvitationStory
-    photo={Story3}
-    title="She Said Yes!"
-    date="18 September 2020"
-    description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ipsum dicta commodi assumenda facere est veritatis quam voluptatem quisquam doloremque deserunt quibusdam ut alias rem similique ullam, temporibus magni laudantium!"
-  />
+  {stories.map((story) => <InvitationStory {...story} />)}
 </section>
