@@ -14,11 +14,13 @@ const memories = [Story1, Story2, Story3, Story1, Story2, Story3, Story1, Story2
     subtitle="Our Captured Moment"
   />
 
-  {
+  <div class="flex flex-row items-center flex-wrap"> 
+    {
     memories.map((memory) => (
-      <div class="p-4 shadow-md">
+      <div class="p-2 shadow-md flex-1/2">
         <Image src={memory} alt="Story 1" format="webp" loading="lazy" />
       </div>
     ))
   }
+  </div>
 </section>
